@@ -1,3 +1,8 @@
+# Check If Your Password Has Been Exposed In A Data Leak
+# This program uses the SHA1 algorithm to hash the password you enter. 
+# The first 5 characters of that hash are then sent to the pwnedpasswords API, which sends back the "tails" of the hashes (the remaining characters after the first 5 have been matched)
+# To ensure that your actual password(hashed and not) is not sent to the internet, your hash and the exposed hashes (the first 5 characters of which match your hashed password's first 5) are
+# compared on your system. If there is a match in the database, then the program prints how many times it has been found.
 import requests
 import hashlib
 import sys
